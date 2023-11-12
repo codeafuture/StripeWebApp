@@ -1,0 +1,21 @@
+﻿@model IEnumerable<StripeWebApp.Models.Item>
+
+   <div class="container">
+       <div class="row">
+           @foreach(var item in Model)
+        {
+            <div class="col-3">
+                <div class="item">
+                    <form class="d-flex justify-content-center" style="position:relative" asp-action="CreateCheckout" method="post">
+                        <input type="hidden"name="Id" value="@item.Id"/>
+                        <img class="itemImg" name="ImageUrl" src="@item.ImageUrl" style="width:70%;"/>
+                        <h6 class="itemTitle" name="Name" style="position:absolute; top: 40%;">@item.Name</h6>
+                        <input type="hidden" name="PriceId" value="@item.PriceId" />
+                        <input class="itemBtn btn btn-dark" type="submit" value="Checkout" style="position: absolute; top: 60%;"/>
+
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+   </div>
